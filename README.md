@@ -1,16 +1,31 @@
 # audio-player-react
-just a simple audio player similar to wechat audio player
 
-# 安装
-` npm install @oovui/audio-player-react -S`
+> just a simple audio player similar to wechat audio player
 
-# 使用说明
+[![NPM](https://img.shields.io/npm/v/audio-player-react.svg)](https://www.npmjs.com/package/audio-player-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-```js
-import OAudioPlayer from '@oovui/audio-player-react';
+## Install
 
-<OAudioPlayer
-  src={sample.mp4}/>
-</OAudioPlayer>
+```bash
+npm install --save audio-player-react
 ```
 
+## Usage
+
+```jsx
+import React, { Component } from 'react'
+
+import MyComponent from 'audio-player-react'
+
+class Example extends Component {
+  render () {
+    return (
+      <MyComponent />
+    )
+  }
+}
+```
+
+## License
+
+MIT © [https://github.com/oovui/audio-player-react](https://github.com/https://github.com/oovui/audio-player-react)
