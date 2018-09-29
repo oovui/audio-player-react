@@ -7,6 +7,7 @@ import Util from './Util.js';
 // 返回image 对象<img src="">
 import dPauseIcon from './images/pause.png';
 import dPlayIcon from './images/playing.gif';
+import { ECANCELED } from 'constants';
 
 
 export default class OAudioPlayer extends Component {
@@ -14,6 +15,7 @@ export default class OAudioPlayer extends Component {
   constructor(props) {
     super(props);
     this.audioPlayerRef = React.createRef();  //this.audioPlayerRef.current;
+    this.progressBarDetailRef = React.createRef();
   }
 
   static defaultProps = {
@@ -56,6 +58,13 @@ export default class OAudioPlayer extends Component {
 
   componentDidMount() {
     console.log("componentDidMount:duration:"+ this.audioPlayerRef.current.duration);
+
+    /******* TODO，进度条拖动
+    dragPoint.addEventListener('touchstart', (e) => this.dragStart(e), false);
+    dragPoint.addEventListener('touchmove', (e) => this.dragMove(e), false);
+    dragPoint.addEventListener('touchend', (e) => this.dragEnd(e), false);
+    //拖动开始时，可以暂停播放。拖动时计算currentTime。拖动结束继续播放,注意暂停和继续播放时间不能太短，否则报错
+    */
 
   }
 
@@ -118,6 +127,21 @@ export default class OAudioPlayer extends Component {
     
   }
 
+  progressBarClickHandle = (e)=>{
+    const ev = e.nativeEvent;
+    const offset = ev.layerX || ev.offsetX;
+    const progressBarDetail = this.progressBarDetailRef.current;
+    const barWidth = progressBarDetail.offsetWidth;
+    let curTime = offset/barWidth * this.state.durationNum;
+    this.setState({
+      currentTimeNum: curTime,
+      currentTime: Util.timeFormat(curTime)
+    })
+    // 设置当前播放时间
+    this.audioPlayerRef.current.currentTime  = curTime;
+
+  }
+
   render() {
     const {
       url, title, subtitle, loop, onPlaying, onPause,preload,
@@ -146,7 +170,9 @@ export default class OAudioPlayer extends Component {
             <p className="audio-title">{title}</p>
             <p className="audio-subtitle">{subtitle}</p>
             <div className="audio-progress-bar-wrap">
-              <div className="progress-bar-detail">
+              <div className="progress-bar-detail"
+                 onClick={this.progressBarClickHandle }
+                 ref={this.progressBarDetailRef}>
                  {/* progress-bar-buffer: 缓冲进度条，progress-bar-current 播放进度条，progress-bar-loading 加载进度条 */}
                 <div className="progress-bar-buffer" style={{ width: bufferedPercent + '%' }}></div>
                 <div className="progress-bar-current" style={{ width: `calc((${currentTimeNum}/${durationNum})*100%)` }}></div>
@@ -154,7 +180,7 @@ export default class OAudioPlayer extends Component {
                   <span className="loading-line"></span>
                 </span>
               </div>
-              <div className="audio-origin"></div>
+              <div className="progress-bar-drag-point" style={{left: `calc((${currentTimeNum}/${durationNum})*100%)` }}></div>
             </div>
             <div className="audio-time-and-controls">
               <span className="current-time">{ currentTime }</span>

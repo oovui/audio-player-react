@@ -97,5 +97,32 @@
       background: #09bb07;
       z-index: 2;
     }
+    .progress-bar-drag-point{
+      width: 6px;
+      height: 6px;
+      margin-top: -3px;
+      margin-left: 0;
+      border-radius: 50%;
+      background-color: #09bb07;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      z-index: 2;
+      &::before{
+        content: " ";
+        display: block;
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: radial-gradient(rgba(9, 187, 7, 0.3) 20%, rgba(0, 0, 0, 0) 40%);
+        top: 50%;
+        margin-top: -12px;
+        margin-left: -9px;
+        cursor: pointer;
+        outline: 0;
+        -webkit-tap-highlight-color: transparent;
+      }
+    }
   }
 }
