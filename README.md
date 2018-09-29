@@ -29,6 +29,24 @@ class Example extends Component {
 }
 ```
 
+## Props
+- ref: get audio player  Instance, can do Dom
+- url: the audio player src(mp3), is required
+- title: the audio player title
+- subtitle: the audio player subtitle
+- pauseIcon: the audio player pause icon
+- playingIcon: the audio player playing icon
+
+## Events
+- playing
+- pause
+
+## Methods
+- doPlay()
+- doPause()
+- doPlayPause()
+
+
 ## Bootstrapped with create-react-library.：
 https://github.com/transitive-bullshit/create-react-library
 
