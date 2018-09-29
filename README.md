@@ -9,6 +9,9 @@
 ```bash
 npm install --save audio-player-react
 ```
+## Preview
+
+<img width="303" src="https://raw.githubusercontent.com/oovui/audio-player-react/master/preview.png"/>
 
 ## Usage
 
