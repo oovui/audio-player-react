@@ -18,12 +18,15 @@ npm install --save audio-player-react
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'audio-player-react'
+import Player from 'audio-player-react'
 
 class Example extends Component {
   render () {
     return (
-      <MyComponent />
+      <Player 
+        url = 'example.mp3'
+        title = "你的样子"
+        author = "罗大佑" />
     )
   }
 }
