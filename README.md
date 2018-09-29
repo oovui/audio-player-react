@@ -26,6 +26,9 @@ class Example extends Component {
 }
 ```
 
+## Bootstrapped with create-react-library.：
+https://github.com/transitive-bullshit/create-react-library
+
 ## License
 
 MIT © [https://github.com/oovui/audio-player-react](https://github.com/https://github.com/oovui/audio-player-react)
