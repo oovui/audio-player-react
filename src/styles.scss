@@ -1,0 +1,101 @@
+/* add css styles here (optional) */
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.audio-player-wrap{
+  width: 96%;
+  margin: 0 auto;
+
+  audio{
+    max-width: 100%;
+    max-height: 80px;
+  }
+
+  .player-body{
+    display: table;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 16px 4px rgba(46, 45, 45, 0.14);
+    border-radius: 10px;
+    padding: 8px 16px;
+    
+  }
+  .body-left,.body-right{
+    display: table-cell;
+  }
+  .body-left{
+    width: 42px;
+    height: 100%;
+    vertical-align: middle;
+    img{
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+    }
+  }
+  .body-right{
+    width: 100%;
+    padding-left: 18px;
+    vertical-align: middle;
+    height: 80px;
+  }
+
+  .audio-title{
+    font-size: 16px;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .audio-subtitle{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    color: #8c8c8c;
+  }
+
+
+  .audio-time-and-controls{
+    font-size: 12px;
+    color: #8c8c8c;
+    .current-time{
+      float: left;
+    }
+    .duration-time{
+      float: right;
+    }
+  }
+
+  // 进度条
+  .audio-progress-bar-wrap{
+    height: 2px;
+    width: calc(100% - 4px);
+    position: relative;
+    margin: 12px 0;
+
+    .progress-bar-detail{
+      height: 100%;
+      width: 100%;
+      background: #ebebeb;
+      position: relative;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .progress-bar-current{
+      width: 0%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      background: #09bb07;
+      z-index: 2;
+    }
+  }
+}
