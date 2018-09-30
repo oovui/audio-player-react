@@ -11,7 +11,7 @@ npm install --save @oovui/audio-player-react
 ```
 ## Preview
 
-<img width="303" src="https://raw.githubusercontent.com/oovui/audio-player-react/master/preview.png"/>
+<img width="303" src="https://raw.githubusercontent.com/oovui/audio-player-react/master/preview_1.png"/>
 
 ## Simple Usage
 
