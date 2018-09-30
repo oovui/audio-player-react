@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 
 import OAudioPlayer from 'audio-player-react'
-const mediaUrl = require('./assets//dahaoheshan.mp3');
+const mediaUrl = require('./assets/nideyangzi.mp3');
+const anthorMediaUrl = require('./assets/sound.mp3');
 
 export default class App extends Component {
 
   constructor(props){
     super(props);
-    this.audioPlayerRef = React.createRef();  //this.audioPlayerRef.current;
+    this.audioPlayerRef = React.createRef();  
   }
   state = {
     url: ''
@@ -18,26 +19,37 @@ export default class App extends Component {
       this.setState({
         url: mediaUrl
       })
-    }, 2000);
-
-    console.log( this.audioPlayerRef.current.duration );
-
-    
-
+    }, 800);
   }
 
   onPlayingHandle() {
-    console.log("父组件, 开始播放， onPlayingHandle ")
+    console.log("onPlayingHandle：audio start play")
   }
 
   onPauseHandle(){
-    console.log("父组件, 暂停播放， onPauseHandle ")
+    console.log("onPauseHandle：audio pause")
   }
 
   doPlay=()=>{
-    console.log("控制播放或暂停");
+    this.audioPlayerRef.current.audioPlay();
+  }
+
+  doPause=()=>{
+    this.audioPlayerRef.current.audioPause();
+  }
+
+  doPlayAndPause=()=>{
     this.audioPlayerRef.current.audioPlayPause();
   }
+
+  togglePlay=()=>{
+    this.setState({
+      url: anthorMediaUrl
+    },function(){
+      this.doPlay();
+    })
+  }
+
 
   render() {
     const { url } = this.state;
@@ -50,9 +62,11 @@ export default class App extends Component {
           subtitle="罗大佑"
           onPlaying={this.onPlayingHandle.bind(this)}
           onPause={this.onPauseHandle.bind(this)}
-          ></OAudioPlayer>
-
-          <button onClick={this.doPlay}> 播放或暂停播放 </button>
+          />
+          <button onClick={this.doPlay}> 播放 </button>
+          <button onClick={this.doPause}> 暂停 </button>
+          <button onClick={this.doPlayAndPause}> 播放和暂停 </button>
+          <button onClick={this.togglePlay }> 切歌 </button>
       </div>
     )
   }

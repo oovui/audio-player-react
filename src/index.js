@@ -7,20 +7,20 @@ import Util from './Util.js';
 // 返回image 对象<img src="">
 import dPauseIcon from './images/pause.png';
 import dPlayIcon from './images/playing.gif';
-import { ECANCELED } from 'constants';
 
 
 export default class OAudioPlayer extends Component {
 
   constructor(props) {
     super(props);
-    this.audioPlayerRef = React.createRef();  //this.audioPlayerRef.current;
+    this.audioPlayerRef = React.createRef();  
     this.progressBarDetailRef = React.createRef();
   }
 
   static defaultProps = {
     onPlaying: () => { },
     onPause: () => { },
+    autoplay:false,
     loop: false,
     preload:'metadata',
     pauseIcon: dPauseIcon.src,
@@ -57,15 +57,12 @@ export default class OAudioPlayer extends Component {
   }
 
   componentDidMount() {
-    console.log("componentDidMount:duration:"+ this.audioPlayerRef.current.duration);
-
     /******* TODO，进度条拖动
     dragPoint.addEventListener('touchstart', (e) => this.dragStart(e), false);
     dragPoint.addEventListener('touchmove', (e) => this.dragMove(e), false);
     dragPoint.addEventListener('touchend', (e) => this.dragEnd(e), false);
     //拖动开始时，可以暂停播放。拖动时计算currentTime。拖动结束继续播放,注意暂停和继续播放时间不能太短，否则报错
     */
-
   }
 
 
@@ -142,9 +139,11 @@ export default class OAudioPlayer extends Component {
 
   }
 
+
+
   render() {
     const {
-      url, title, subtitle, loop, onPlaying, onPause,preload,
+      url, title, subtitle, loop, onPlaying, onPause,preload,autoplay
     } = this.props
     const {
        duration,currentTime,durationNum,currentTimeNum,bufferedPercent,playSrc
@@ -154,6 +153,7 @@ export default class OAudioPlayer extends Component {
         <audio className="wx-audio-content"
           ref={this.audioPlayerRef}
           preload = {preload}
+          autoPlay = {autoplay}
           onPlaying={onPlaying}
           onPause={onPause}
           onCanPlay = { this.canplayHandle }
