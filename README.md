@@ -2,7 +2,8 @@
 
 > just a simple audio player based React
 
-[![NPM](https://img.shields.io/npm/v/audio-player-react.svg)](https://www.npmjs.com/package/@oovui/audio-player-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![npm](https://img.shields.io/npm/v/@oovui/audio-player-react.svg)](https://www.npmjs.com/package/@oovui/audio-player-react)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
