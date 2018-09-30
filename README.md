@@ -2,12 +2,12 @@
 
 > just a simple audio player based React
 
-[![NPM](https://img.shields.io/npm/v/audio-player-react.svg)](https://www.npmjs.com/package/audio-player-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/audio-player-react.svg)](https://www.npmjs.com/package/@oovui/audio-player-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save @oovui/audio-player-react
+npm i @oovui/audio-player-react
 ```
 ## Preview
 

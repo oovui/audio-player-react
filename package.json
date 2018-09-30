@@ -1,7 +1,7 @@
 {
-  "name": "audio-player-react",
-  "version": "1.0.0",
-  "description": "just a simple audio player similar to wechat audio player",
+  "name": "@oovui/audio-player-react",
+  "version": "1.0.1",
+  "description": "just a simple audio player based React",
   "author": "https://github.com/oovui/audio-player-react",
   "license": "MIT",
   "repository": "https://github.com/oovui/audio-player-react",
@@ -19,7 +19,11 @@
     "start": "rollup -c -w",
     "prepare": "yarn run build",
     "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "publish": "npm publish"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
